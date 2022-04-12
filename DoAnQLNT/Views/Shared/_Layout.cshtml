@@ -1,0 +1,421 @@
+﻿<!DOCTYPE html>
+<link href="~/Content/css/Style1.css" rel="stylesheet" />
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Nhóm 7 Store</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/css/Style1.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    @*    <link href="~/Content/shop-homepage.css" rel="stylesheet">*@
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<link href="~/Content/css/Style1.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class=" navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Nhóm 7</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        @Html.ActionLink("TRANG CHỦ", "Index", "NTStore")
+                    </li>
+                    <li>
+                        @Html.ActionLink("ĐĂNG KÝ", "Dangky", "Nguoidung")
+                    </li>
+                    <li>
+                        @Html.ActionLink("ĐĂNG NHẬP", "Dangnhap", "Nguoidung")
+                    </li>
+                    <li>
+                        @Html.Action("GiohangPartial", "Giohang")
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <div id="myCarousel" class="carousel slide homCar">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img class="slide-image" src="~/Content/image//slide1.png" alt="">
+                </div>
+                <div class="item">
+                    <img class="slide-image" src="~/Content/image/slide2.png" alt="">
+                </div>
+                <div class="item">
+                    <img class="slide-image" src="~/Content/image/slide3.png" alt="">
+                </div>
+            </div>
+            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        </div>
+    </div>
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+
+                @Html.Action("Theloai", "NTStore")
+
+                @Html.Action("Nhacungcap", "NTStore")
+            </div>
+            <div class="col-md-9">
+
+                @*<h3 style="text-align:center; color:red">SÁCH MỚI</h3>*@
+                <div>
+                    @RenderBody()
+                </div>
+
+
+
+                @*<div class="row">
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+                            <div class="thumbnail">
+                                <img src="~/Content/images//KT0001.jpg" width="100">
+                                <div class="caption">
+                                    <h4 class="pull-right">$24.99</h4>
+                                    <h4>
+                                        <a href="#">First Product</a>
+                                    </h4>
+                                    <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
+                                </div>
+                                <div class="ratings">
+                                    <p class="pull-right">15 reviews</p>
+                                    <p>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+                            <div class="thumbnail">
+                                <img src="~/Content/images//KT0002.jpg" width="100">
+                                <div class="caption">
+                                    <h4 class="pull-right">$64.99</h4>
+                                    <h4>
+                                        <a href="#">Second Product</a>
+                                    </h4>
+                                    <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                                <div class="ratings">
+                                    <p class="pull-right">12 reviews</p>
+                                    <p>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star-empty"></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+                            <div class="thumbnail">
+                                <img src="~/Content/images//KT0003.jpg" width="100">
+                                <div class="caption">
+                                    <h4 class="pull-right">$74.99</h4>
+                                    <h4>
+                                        <a href="#">Third Product</a>
+                                    </h4>
+                                    <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                                <div class="ratings">
+                                    <p class="pull-right">31 reviews</p>
+                                    <p>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star-empty"></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+                            <div class="thumbnail">
+                                <img src="~/Content/images//KT0004.jpg" width="100">
+                                <div class="caption">
+                                    <h4 class="pull-right">$84.99</h4>
+                                    <h4>
+                                        <a href="#">Fourth Product</a>
+                                    </h4>
+                                    <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                                <div class="ratings">
+                                    <p class="pull-right">6 reviews</p>
+                                    <p>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star-empty"></span>
+                                        <span class="glyphicon glyphicon-star-empty"></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+                            <div class="thumbnail">
+                                <img src="~/Content/images//KT0005.jpg" width="100">
+                                <div class="caption">
+                                    <h4 class="pull-right">$94.99</h4>
+                                    <h4>
+                                        <a href="#">Fifth Product</a>
+                                    </h4>
+                                    <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                                <div class="ratings">
+                                    <p class="pull-right">18 reviews</p>
+                                    <p>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star-empty"></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+                            <h4>
+                                <a href="#">Like this template?</a>
+                            </h4>
+                            <p>If you like this template, then check out <a target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">this tutorial</a> on how to build a working review system for your online store!</p>
+                            <a class="btn btn-primary" target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">View Tutorial</a>
+                        </div>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+
+    <div class="group-furniture" style="width: 100%;">
+        <div class="box-flex">
+            <div class="item-furniture">
+                <div class="link-full" style="background-image: url('../../Content/image/sanphamweb-1.jpg'); "></div>
+                <div class="box">
+                    <div class="tt-2">SẢN PHẨM NỘI THẤT</div>
+                    <div class="mt10">
+                        <a href="/NTStore/Index" class="link">XEM TẤT CẢ</a>
+                    </div>
+                </div>
+                <a href="/NTStore/Index" class="full-link"></a>
+            </div>
+            <div class="box-flex">
+                <div class="item-furniture small">
+                    <div class="link-full"
+                         style="background-image: url('../../Content/image/tham2.jpg');"></div>
+                    <div class="box">
+                        <div class="tt-2">THẢM</div>
+                        <div class="mt10">
+                            <a href="/NTStore/SPTheochude/7" class="link">XEM TẤT CẢ</a>
+                        </div>
+                    </div>
+                    <a href="/NTStore/SPTheochude/7" class="full-link"></a>
+                </div>
+                <div class="item-furniture small">
+                    <div class="link-full"
+                         style="background-image: url('../../Content/image/den-1.jpg');"></div>
+                    <div class="box">
+                        <div class="tt-2">ĐÈN</div>
+                        <div class="mt10">
+                            <a href="/NTStore/SPTheochude/4" class="link">XEM TẤT CẢ</a>
+                        </div>
+                    </div>
+                    <a href="/NTStore/SPTheochude/4" class="full-link"></a>
+                </div>
+            </div>
+        </div>
+        <div class="box-flex right">
+            <div class="item-furniture">
+                <div class="link-full"
+                     style="background-image: url('../../Content/image/dotrangtri.jpg');"></div>
+                <div class="box">
+                    <div class="tt-2">ĐỒ TRANG TRÍ</div>
+                    <div class="mt10">
+                        <a href="/NTStore/SPTheochude/6" class="link">
+                            XEM
+                            TẤT CẢ
+                        </a>
+                    </div>
+                </div>
+                <a href="/NTStore/SPTheochude/6" class="full-link"></a>
+            </div>
+            <div class="box-flex">
+                <div class="item-furniture small">
+                    <div class="link-full"
+                         style="background-image: url('../../Content/image/chendia.jpg');"></div>
+                    <div class="box">
+                        <div class="tt-2">CHÉN DĨA</div>
+                        <div class="mt10">
+                            <a href="#" class="link">
+                                XEM
+                                TẤT CẢ
+                            </a>
+                        </div>
+                    </div>
+                    <a href="#" class="full-link"></a>
+                </div>
+                <div class="item-furniture small">
+                    <div class="link-full"
+                         style="background-image: url('../../Content/image/Giaydantuong.jpg');"></div>
+                    <div class="box">
+                        <div class="tt-2">GIẤY DÁN TƯỜNG</div>
+                        <div class="mt10">
+                            <a href="#" class="link">
+                                XEM
+                                TẤT CẢ
+                            </a>
+                        </div>
+                    </div>
+                    <a href="#" class="full-link"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+    <section class="our_client " style="background-color: #f0f0f0;">
+        <div class="" style=" display: flex; justify-content: center;">
+            <div class="span2">
+                <a href="#">
+                    <img src="~/Content/image/11.png" />
+                </a>
+            </div>
+            <div class="span2">
+                <a href="#"><img alt="" src="~/Content/image/22.png"></a>
+            </div>
+            <div class="span2">
+                <a href="#"><img alt="" src="~/Content/image/33.png"></a>
+            </div>
+            <div class="span2">
+                <a href="#"><img alt="" src="~/Content/image/44.png"></a>
+            </div>
+            <div class="span2">
+                <a href="#"><img alt="" src="~/Content/image/55.png"></a>
+            </div>
+            <div class="span2">
+                <a href="#"><img alt="" src="~/Content/image/66.png"></a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="row-fluid">
+            <div class="span2">
+                <h5>o((>ω< ))o</h5>
+                <a href="#">TRANG CHỦ</a><br>
+                <a href="#">SẢN PHẨM</a><br>
+                <a href="#">GIỚI THIỆU</a><br>
+                <a href="#">LIÊN HỆ</a><br>
+            </div>
+
+            <div class="span2">
+                <h5>Iinformation</h5>
+                <a href="contact.html">CONTACT</a><br> <a href="#">SITEMAP</a><br>
+                <a href="#">LEGAL NOTICE</a><br> <a href="#">
+                    TERMS AND
+                    CONDITIONS
+                </a><br> <a href="#">ABOUT US</a><br>
+            </div>
+
+            <div class="span2">
+                <h5>FOLLOW US</h5>
+                <a href="#">FACEBOOK</a><br>
+                <a href="#">TWITTER</a><br>
+                <a href="#">INSTAGRAM</a><br>
+                <a href="#">YOUTUBE</a><br />
+            </div>
+
+            <div class="span2">
+                <h5>PAYMENT METHODS</h5>
+                <p class="pull-right">
+                    <a href="#">
+                        <img src="~/Content/image/maestro.png" />
+                    </a>
+                    <a href="#">
+                        <img src="~/Content/image/mc.png" />
+                    </a>
+                    <a href="#">
+                        <img src="~/Content/image/pp.png" />
+                    </a>
+                    <a href="#">
+                        <img src="~/Content/image/visa.png" />
+                    </a>
+                    <a href="#">
+                        <img src="~/Content/image/disc.png" />
+                    </a>
+                </p>
+            </div>
+
+            <div class="span4">
+                <h5>HUTECH-ĐIỆN BIÊN PHỦ,SÀI GÒN</h5>
+                0932670328<br>
+                475A Điện Biên Phủ, Phường 25,<br>
+                Quận Bình Thạnh, TP.HCM
+            </div>
+
+
+        </div>
+
+        <div class="copyright">
+            <hr>
+            <div class="container">
+
+                <span>
+                    Copyright &copy; 2022 Nhóm 7 | <a href="#"
+                                                      style="color: #eee">Chính sách</a> | <a href="#" style="color: #eee">
+                        Quy
+                        chế hoạt động
+                    </a> | <a href="#" style="color: #eee">
+                        Điều khoản và
+                        điều kiện
+                    </a> | <a href="#" style="color: #eee">Chủ sở hữu</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+    <!-- /.container -->
+    <!-- jQuery -->
+    @RenderSection("upload", required: false)
+    <script src="~/Scripts/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

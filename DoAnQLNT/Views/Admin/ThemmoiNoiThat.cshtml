@@ -1,0 +1,93 @@
+﻿@model DoAnQLNT.Models.NOITHAT
+
+@{
+    ViewBag.Title = "ThemmoiNoiThat";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>ThemmoiNoiThat</h2>
+
+@using (Html.BeginForm("ThemmoiNoiThat", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>NOITHAT</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.TenNOITHAT, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.TenNOITHAT, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.TenNOITHAT, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Giaban, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Giaban, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Giaban, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Mota, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Mota, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Mota, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Anhbia, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="file" name="fileupload"/>
+            @ViewBag.Thongbao
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Ngaycapnhat, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @*@Html.EditorFor(model => model.Ngaycapnhat, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Ngaycapnhat, "", new { @class = "text-danger" })*@
+            <input type="date" name="Ngaycapnhat" />
+            @Html.ValidationMessageFor(model => model.Ngaycapnhat)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Soluongton, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Soluongton, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Soluongton, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaTheLoai, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("MaTheLoai")
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaNCC, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("MaNCC")
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "NoiThat")
+    </div>

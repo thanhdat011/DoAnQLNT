@@ -1,0 +1,73 @@
+﻿
+
+<h2> THÔNG TIN CHI TIẾT SẢN PHẨM</h2>
+<h3>Tên sản phẩm: @Model.TenNOITHAT </h3>
+
+<style type="text/css">
+    #Datmua button {
+        clear: both;
+        background-color: red;
+        color: white;
+        width: 120px;
+        height: 35px;
+        display: block;
+        padding-top: 10px;
+        float: right;
+        text-decoration: none;
+        text-align: center;
+        font-weight: bold;
+    }
+    #Datmua a {
+        clear: both;
+        background-color: red;
+        color: white;
+        width: 120px;
+        height: 35px;
+        display: block;
+        padding-top: 10px;
+        float: right;
+        text-decoration: none;
+        text-align: center;
+        font-weight: bold;
+    }
+
+        #Datmua a:hover {
+            background-color: gray;
+            color: red;
+        }
+</style>
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3> THÔNG TIN CHI TIẾT SẢN PHẨM</h3>
+<div>
+    <div style-"width:40%; float:left; border-left: dotted 1px; border-color:azure">
+        <img src="~/Hinhsanpham/@Model.Anhbia" width="100" />
+    </div>
+    <div style="width:60%; float:left; padding:10px">
+        <h4 style="font-weight:bold; color:red">Tên sản phẩm: @Model.TenNOITHAT </h4>
+        <p style="text-align:justify"><Span style="font-weight:bold"> Mô tả: </Span>@Model.Mota </p>
+        <p style="font-weight:bold"> Giá bán: <span style="color:red; font-size:16pt "> @Model.Giaban VNÐ </span></p>
+    </div>
+    <div>
+        
+        <div id="Datmua">
+            @if (Model.Soluongton > 0)
+            {
+                <a href="@Url.Action("ThemGiohang", "GioHang",new { @iMant = @Model.MaNOITHAT, @strURL = Request.Url.ToString() })">
+                    ĐẶT MUA
+                </a>
+            }
+            else
+            {
+                <button disabled href="@Url.Action("ThemGiohang", "GioHang",new { @iMant = @Model.MaNOITHAT, @strURL = Request.Url.ToString() })">
+                    ĐẶT MUA
+                </button>
+            }
+        </div>
+    </div>
+</div>
+
+

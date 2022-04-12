@@ -1,0 +1,82 @@
+﻿@model DoAnQLNT.Models.NOITHAT
+
+@{
+    ViewBag.Title = "Chitietsanpham";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>THÔNG TIN CHI TIẾT NỘI THẤT</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên sản phẩm:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenNOITHAT)
+        </dd>
+
+        <dt>
+            Giá bán:
+        </dt>
+
+        <dd>
+            @String.Format("{0:0,0}", Model.Giaban) VNĐ
+        </dd>
+
+        <dt>
+            Mô tả:
+        </dt>
+
+        <dd style="width:600px; text-align:justify">
+            @Html.DisplayFor(model => model.Mota)
+        </dd>
+
+        <dt>
+            Ảnh bìa:
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/Hinhsanpham/" +Model.Anhbia)" width="120" />
+        </dd>
+
+        <dt>
+            Ngày cập nhật:
+        </dt>
+
+        <dd>
+            @String.Format("{0:dd/MM/yyyy}", Model.Ngaycapnhat)
+        </dd>
+
+        <dt>
+            Số lượng tồn:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Soluongton)
+        </dd>
+
+        <dt>
+            Thể loại:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TheLoai.TenTheLoai)
+        </dd>
+
+        <dt>
+            Nhà cung cấp
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NHACC.TenNCC)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("ĐIỀU CHỈNH", "Suasanpham", new { id = Model.MaNOITHAT }) |
+    @Html.ActionLink("TRỞ VỀ", "NoiThat")
+</p>

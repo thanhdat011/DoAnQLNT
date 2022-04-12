@@ -1,0 +1,61 @@
+﻿@using PagedList.Mvc;
+@using DoAnQLNT.Models
+@model PagedList.PagedList<NOITHAT>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/css/Style1.css" rel="stylesheet" />
+<h3 style="text-align:center; color:red">SẢN PHẨM MỚI</h3>
+@using (Html.BeginForm("Index", "NTStore", FormMethod.Get, new { @class = "form-inline" }))
+{
+    <div class="form-group form-inline" style="display: flex;">
+        <input type="Text" class="form-control col-md-10" value="@ViewBag.Keyword"
+               name="searchString" placeholder="Nhập tên sản phẩm cần tìm">
+
+        <input type="submit" class="btn btn-info" value="Tìm sản phẩm" style="margin-left: 10px; background-color: #000">
+
+    </div>
+    <br>
+}
+<div class="row">
+    @foreach (var noithat in Model)
+    {
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                <a href="@Url.Action("Details", "NTStore", new {id = noithat.MaNOITHAT })">
+                    <img alt="@noithat.TenNOITHAT" src="~/Hinhsanpham/@noithat.Anhbia" width="200" height="200" />
+                </a>
+                <div>
+                    <br />
+                    <h4 style="text-align:center">
+                        @noithat.TenNOITHAT
+                    </h4>
+                    <p></p>
+                </div>
+                <div class="ratings">
+                    <p class="pull-right">38 views</p>
+                    <p>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
+
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>

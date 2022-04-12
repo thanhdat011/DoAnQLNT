@@ -1,0 +1,13 @@
+﻿
+@model IEnumerable<DoAnQLNT.Models.TheLoai>
+<p class="lead">LOẠI NỘI THẤT</p>
+<div class="list-group">
+    @foreach (var item in Model)
+    {
+        <a href="@Url.Action("SPTheochude","NTStore", new { id = item.MaTheLoai })" class="list-group-item">
+            @item.TenTheLoai
+        </a>
+    }
+
+</div>
+

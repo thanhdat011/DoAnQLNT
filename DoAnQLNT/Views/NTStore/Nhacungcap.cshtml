@@ -1,0 +1,10 @@
+﻿@model IEnumerable<DoAnQLNT.Models.NHACC>
+<p class="lead">NHÀ CUNG CẤP</p>
+<div class="list-group">
+    @foreach (var item in Model)
+    {
+        <a href="@Url.Action("SPTheoNCC","NTStore", new { id = item.MaNCC })" class="list-group-item">
+            @item.TenNCC
+        </a>
+    }
+</div>

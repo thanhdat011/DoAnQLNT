@@ -1,0 +1,101 @@
+﻿@using DoAnQLNT.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<NOITHAT>
+
+@helper Truncate(String input, int lenght)
+{
+    if (input.Length < lenght)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, lenght)<text>...</text>
+    }
+}
+
+@{
+    ViewBag.Title = "NoiThat";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>QUẢN LÝ THÔNG TIN SẢN PHẨM</h2>
+@using (Html.BeginForm("NoiThat", "Admin", FormMethod.Get, new { @class = "form-inline" }))
+{
+    <div class="form-group form-inline" style="display: flex;">
+        <input type="Text" class="form-control col-md-10" value="@ViewBag.Keyword"
+               name="searchString" placeholder="Nhập tên sản phẩm cần tìm">
+
+        <input type="submit" class="btn btn-info" value="Tìm sản phẩm" style="margin-left: 10px; background-color: #000">
+
+    </div>
+    <br>
+}
+
+
+
+<p>
+    @Html.ActionLink("THÊM MỚI", "ThemmoiNoiThat")
+</p>
+<table class="table" border="1">
+    <tr>
+        <th style="width:200px"> Tên Sản Phẩm </th>
+        <th style="width:100px"> Giá Bán </th>
+        <th style="width:300px"> Mô Tả </th>
+        <th style="width:120px"> Ảnh Bìa </th>
+        <th style="width:150px"> Ngày cập nhật </th>
+        <th style="width:120px"> Sl.tồn</th>
+        <th style="width:120px"> Tên thể loại</th>
+        <th style="width:100px"> Tên NCC</th>
+        <th style="width:200px"></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenNOITHAT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Giaban)
+            </td>
+            <td>
+                @Truncate(item.Mota, 100)
+            </td>
+            <td>
+                <img style="width:400px; height:300px" src="@Url.Content("~/Hinhsanpham/" + item.Anhbia)" />
+                @*@Html.DisplayFor(modelItem => item.Anhbia)*@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ngaycapnhat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soluongton)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TheLoai.TenTheLoai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NHACC.TenNCC)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Suasanpham", new { id = item.MaNOITHAT }) |
+                @Html.ActionLink("Chi tiết", "Chitietsanpham", new { id = item.MaNOITHAT }) |
+                @Html.ActionLink("Xoá", "Xoasanpham", new { id = item.MaNOITHAT })
+            </td>
+        </tr>
+    }
+
+</table>
+Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
+
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("NoiThat", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>
+
+
